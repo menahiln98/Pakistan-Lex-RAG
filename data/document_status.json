@@ -1,0 +1,38 @@
+{
+  "anti_rape_act": {
+    "status": "active",
+    "category": "women"
+  },
+  "child_labor_act": {
+    "status": "active",
+    "category": "children"
+  },
+  "child_marriage_act": {
+    "status": "active",
+    "category": "children"
+  },
+  "employment_ordinance": {
+    "status": "active",
+    "category": "employees"
+  },
+  "harassment_act": {
+    "status": "active",
+    "category": "women"
+  },
+  "hec_harassment_policy": {
+    "status": "active",
+    "category": "students"
+  },
+  "minorities_commission_act": {
+    "status": "active",
+    "category": "minorities"
+  },
+  "peca_2016": {
+    "status": "active",
+    "category": "defamation"
+  },
+  "ppc_1860": {
+    "status": "active",
+    "category": "defamation"
+  }
+}

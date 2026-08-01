@@ -1,0 +1,46 @@
+[
+  {
+    "timestamp": "2026-08-01T12:23:10.732865+00:00",
+    "query": "My manager keeps making inappropriate comments at work. What can I legally do?",
+    "retrieval_time_sec": 29.808,
+    "time_to_first_token_sec": 1.825,
+    "generation_time_sec": 3.217,
+    "total_time_sec": 33.025,
+    "top_scores": [
+      -6.9627,
+      -7.5393,
+      -7.645,
+      -7.8115,
+      -7.8261
+    ],
+    "sources": [
+      "harassment_act",
+      "harassment_act",
+      "hec_harassment_policy",
+      "harassment_act",
+      "harassment_act"
+    ]
+  },
+  {
+    "timestamp": "2026-08-01T12:36:13.532998+00:00",
+    "query": "My manager keeps making inappropriate comments at work. What can I legally do?",
+    "retrieval_time_sec": 8.129,
+    "time_to_first_token_sec": 2.111,
+    "generation_time_sec": 3.481,
+    "total_time_sec": 11.61,
+    "top_scores": [
+      -6.9627,
+      -7.5393,
+      -7.645,
+      -7.8115,
+      -7.8261
+    ],
+    "sources": [
+      "harassment_act",
+      "harassment_act",
+      "hec_harassment_policy",
+      "harassment_act",
+      "harassment_act"
+    ]
+  }
+]
