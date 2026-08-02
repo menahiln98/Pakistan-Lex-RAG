@@ -306,5 +306,445 @@
       "ppc_1860",
       "ppc_1860"
     ]
+  },
+  {
+    "timestamp": "2026-08-02T14:43:45.084462+00:00",
+    "query": "Tell me about my rights under Women's Rights and what legal protections are available to me.",
+    "retrieval_time_sec": 7.648,
+    "time_to_first_token_sec": 2.142,
+    "generation_time_sec": 3.823,
+    "total_time_sec": 11.471,
+    "top_scores": [
+      -3.3268,
+      -3.6265,
+      -4.7388,
+      -5.5995,
+      -5.7689
+    ],
+    "sources": [
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "minorities_commission_act"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T14:43:46.768728+00:00",
+    "query": "Tell me about my rights under Women's Rights and what legal protections are available to me.",
+    "retrieval_time_sec": 7.687,
+    "time_to_first_token_sec": 2.551,
+    "generation_time_sec": 5.503,
+    "total_time_sec": 13.189,
+    "top_scores": [
+      -3.3268,
+      -3.6265,
+      -4.7388,
+      -5.5995,
+      -5.7689
+    ],
+    "sources": [
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "minorities_commission_act"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T14:44:03.801256+00:00",
+    "query": "my manager keeps harassing me",
+    "retrieval_time_sec": 3.191,
+    "time_to_first_token_sec": 0.718,
+    "generation_time_sec": 1.968,
+    "total_time_sec": 5.159,
+    "top_scores": [
+      -2.9854,
+      -3.6488,
+      -4.4025,
+      -5.4804,
+      -5.9364
+    ],
+    "sources": [
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "hec_harassment_policy",
+      "hec_harassment_policy"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T14:56:35.230951+00:00",
+    "query": "Tell me about my rights under Women's Rights and what legal protections are available to me.",
+    "retrieval_time_sec": 23.281,
+    "time_to_first_token_sec": 1.248,
+    "generation_time_sec": 2.881,
+    "total_time_sec": 26.162,
+    "top_scores": [
+      -3.3268,
+      -3.6265,
+      -4.7388,
+      -5.5995,
+      -5.7689
+    ],
+    "sources": [
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "minorities_commission_act"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T14:56:53.944257+00:00",
+    "query": "my manager keeps harassing me. what to do",
+    "retrieval_time_sec": 7.914,
+    "time_to_first_token_sec": 0.744,
+    "generation_time_sec": 2.532,
+    "total_time_sec": 10.446,
+    "top_scores": [
+      -3.4022,
+      -3.5159,
+      -4.166,
+      -5.7438,
+      -6.9139
+    ],
+    "sources": [
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "hec_harassment_policy",
+      "hec_harassment_policy"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T14:57:00.925992+00:00",
+    "query": "my manager keeps harassing me. what to do",
+    "retrieval_time_sec": 8.817,
+    "time_to_first_token_sec": 0.948,
+    "generation_time_sec": 9.598,
+    "total_time_sec": 18.415,
+    "top_scores": [
+      -3.4022,
+      -3.5159,
+      -4.166,
+      -5.7438,
+      -6.9139
+    ],
+    "sources": [
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "hec_harassment_policy",
+      "hec_harassment_policy"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T20:00:07.366601+00:00",
+    "query": "Tell me about my rights under Women's Rights and what legal protections are available to me.",
+    "retrieval_time_sec": 9.105,
+    "time_to_first_token_sec": 3.506,
+    "generation_time_sec": 5.433,
+    "total_time_sec": 14.538,
+    "top_scores": [
+      -3.3268,
+      -3.6265,
+      -4.7388,
+      -5.5995,
+      -5.7689
+    ],
+    "sources": [
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "minorities_commission_act"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T20:00:28.628209+00:00",
+    "query": "my manager keeps harassing me. what to do",
+    "retrieval_time_sec": 3.677,
+    "time_to_first_token_sec": 0.639,
+    "generation_time_sec": 2.413,
+    "total_time_sec": 6.089,
+    "top_scores": [
+      -3.4022,
+      -3.5159,
+      -4.166,
+      -5.7438,
+      -6.9139
+    ],
+    "sources": [
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "hec_harassment_policy",
+      "hec_harassment_policy"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T20:00:29.331914+00:00",
+    "query": "my manager keeps harassing me. what to do",
+    "retrieval_time_sec": 2.256,
+    "time_to_first_token_sec": 1.013,
+    "generation_time_sec": 2.641,
+    "total_time_sec": 4.897,
+    "top_scores": [
+      -3.4022,
+      -3.5159,
+      -4.166,
+      -5.7438,
+      -6.9139
+    ],
+    "sources": [
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "hec_harassment_policy",
+      "hec_harassment_policy"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T20:00:58.240764+00:00",
+    "query": "Tell me about my rights under Women's Rights and what legal protections are available to me.",
+    "retrieval_time_sec": 2.73,
+    "time_to_first_token_sec": 1.078,
+    "generation_time_sec": 2.524,
+    "total_time_sec": 5.254,
+    "top_scores": [
+      -3.3268,
+      -3.6265,
+      -4.7388,
+      -5.5995,
+      -5.7689
+    ],
+    "sources": [
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "minorities_commission_act"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T20:01:09.158678+00:00",
+    "query": "Tell me about my rights under Students' Rights and what legal protections are available to me.",
+    "retrieval_time_sec": 2.53,
+    "time_to_first_token_sec": 1.018,
+    "generation_time_sec": 3.096,
+    "total_time_sec": 5.626,
+    "top_scores": [
+      -5.8021,
+      -6.515,
+      -7.0061,
+      -8.7254,
+      -9.071
+    ],
+    "sources": [
+      "hec_harassment_policy",
+      "minorities_commission_act",
+      "hec_harassment_policy",
+      "minorities_commission_act",
+      "hec_harassment_policy"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T20:01:26.629341+00:00",
+    "query": "Tell me about my rights under Defamation and what legal protections are available to me.",
+    "retrieval_time_sec": 3.281,
+    "time_to_first_token_sec": 1.173,
+    "generation_time_sec": 3.765,
+    "total_time_sec": 7.046,
+    "top_scores": [
+      -2.4573,
+      -2.9072,
+      -4.1182,
+      -5.3743,
+      -6.887
+    ],
+    "sources": [
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T20:01:41.965860+00:00",
+    "query": "i'm accused of treachery, what to do",
+    "retrieval_time_sec": 2.506,
+    "time_to_first_token_sec": 1.227,
+    "generation_time_sec": 3.191,
+    "total_time_sec": 5.698,
+    "top_scores": [
+      -7.767,
+      -9.7261,
+      -9.7262,
+      -9.7533,
+      -9.8434
+    ],
+    "sources": [
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T20:08:52.118681+00:00",
+    "query": "Tell me about my rights under Women's Rights and what legal protections are available to me.",
+    "retrieval_time_sec": 5.218,
+    "time_to_first_token_sec": 1.91,
+    "generation_time_sec": 3.364,
+    "total_time_sec": 8.582,
+    "top_scores": [
+      -3.3268,
+      -3.6265,
+      -4.7388,
+      -5.5995,
+      -5.7689
+    ],
+    "sources": [
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "minorities_commission_act"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T20:09:30.336123+00:00",
+    "query": "My manager keeps harassing me. what to do?",
+    "retrieval_time_sec": 2.812,
+    "time_to_first_token_sec": 1.005,
+    "generation_time_sec": 3.221,
+    "total_time_sec": 6.032,
+    "top_scores": [
+      -3.3919,
+      -3.6025,
+      -4.5025,
+      -5.8914,
+      -7.5219
+    ],
+    "sources": [
+      "harassment_act",
+      "harassment_act",
+      "harassment_act",
+      "hec_harassment_policy",
+      "hec_harassment_policy"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T20:17:22.269624+00:00",
+    "query": "Tell me about my rights under Children's Rights and what legal protections are available to me.",
+    "retrieval_time_sec": 6.76,
+    "time_to_first_token_sec": 1.908,
+    "generation_time_sec": 4.71,
+    "total_time_sec": 11.47,
+    "top_scores": [
+      -5.3844,
+      -6.6235,
+      -6.7444,
+      -7.4017,
+      -7.7398
+    ],
+    "sources": [
+      "child_labor_act",
+      "minorities_commission_act",
+      "child_labor_act",
+      "child_labor_act",
+      "child_labor_act"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T20:18:11.286272+00:00",
+    "query": "My parents are forcing me into child marriage. what shall i do?",
+    "retrieval_time_sec": 3.07,
+    "time_to_first_token_sec": 0.976,
+    "generation_time_sec": 2.737,
+    "total_time_sec": 5.807,
+    "top_scores": [
+      0.4163,
+      -0.6893,
+      -3.7436,
+      -4.9978,
+      -5.6954
+    ],
+    "sources": [
+      "child_marriage_act",
+      "child_marriage_act",
+      "child_marriage_act",
+      "child_marriage_act",
+      "child_marriage_act"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T20:19:32.121913+00:00",
+    "query": "Tell me about my rights under Defamation and what legal protections are available to me.",
+    "retrieval_time_sec": 3.961,
+    "time_to_first_token_sec": 0.616,
+    "generation_time_sec": 3.103,
+    "total_time_sec": 7.064,
+    "top_scores": [
+      -2.4573,
+      -2.9072,
+      -4.1182,
+      -5.3743,
+      -6.887
+    ],
+    "sources": [
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T20:20:04.098928+00:00",
+    "query": "I have been accused of treachery. I am innocent",
+    "retrieval_time_sec": 2.553,
+    "time_to_first_token_sec": 0.986,
+    "generation_time_sec": 2.266,
+    "total_time_sec": 4.818,
+    "top_scores": [
+      -5.7106,
+      -6.9716,
+      -7.6827,
+      -9.3923,
+      -9.5187
+    ],
+    "sources": [
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860"
+    ]
+  },
+  {
+    "timestamp": "2026-08-02T20:21:00.291122+00:00",
+    "query": "I have been accused of fraud and treachery in office. I am innocent",
+    "retrieval_time_sec": 2.643,
+    "time_to_first_token_sec": 1.065,
+    "generation_time_sec": 2.981,
+    "total_time_sec": 5.624,
+    "top_scores": [
+      -5.3448,
+      -7.3877,
+      -9.378,
+      -9.4284,
+      -9.4552
+    ],
+    "sources": [
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860",
+      "ppc_1860"
+    ]
   }
 ]
