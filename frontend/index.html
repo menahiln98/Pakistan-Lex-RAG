@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pakistan Law Assistant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; padding: 0; font-family: 'DM Sans', sans-serif; }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #C9C0AD; border-radius: 3px; }
+
+  #app { display: flex; height: 100vh; background: #F3EDE0; overflow: hidden; }
+
+  aside { width: 248px; flex-shrink: 0; background: #2B5749; display: flex; flex-direction: column; overflow: hidden; }
+  .sidebar-header { padding: 20px 18px 16px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+  .brand-icon { width: 32px; height: 32px; background: #3D7A63; border-radius: 5px; display: flex; align-items: center; justify-content: center; }
+  .brand-title { color: #D4E8DF; font-size: 13px; font-family: 'Libre Baskerville', serif; font-weight: 700; line-height: 1.2; }
+  .brand-sub { color: #7EA89A; font-size: 11px; line-height: 1.2; }
+  #newChatBtn { width: 100%; padding: 8px 12px; border: 1px solid rgba(61,122,99,0.6); border-radius: 5px; background: transparent; color: #9ABFB2; font-size: 12px; font-family: 'DM Sans', sans-serif; cursor: pointer; }
+  #newChatBtn:hover { background: #3D7A63; color: #D4E8DF; }
+
+  .cat-list { flex: 1; overflow-y: auto; padding: 14px 12px; }
+  .cat-label { font-size: 10px; color: #638F82; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 10px; padding-left: 6px; }
+  .cat-btn { width: 100%; text-align: left; padding: 9px 10px; border-radius: 4px; border: none; border-left: 2px solid transparent; background: transparent; cursor: pointer; display: block; margin-bottom: 1px; }
+  .cat-btn span { font-size: 12px; color: #7EA89A; font-family: 'DM Sans', sans-serif; }
+  .cat-btn:hover { background: rgba(61,122,99,0.15); border-left-color: rgba(126,200,168,0.3); }
+  .cat-btn.active { background: rgba(61,122,99,0.25); border-left-color: #7EC4A8; }
+  .cat-btn.active span { color: #C0DDD4; font-weight: 600; }
+
+  .sidebar-footer { padding: 12px 16px; border-top: 1px solid rgba(255,255,255,0.06); }
+  #manageDocsBtn { width: 100%; text-align: left; background: transparent; border: none; color: #7EA89A; font-size: 11px; cursor: pointer; margin-bottom: 8px; padding: 0; font-family: 'DM Sans', sans-serif; }
+  .disclaimer { font-size: 10px; color: #4E7A6B; line-height: 1.6; margin: 0; }
+
+  main { flex: 1; display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
+
+  #welcomeScreen { flex: 1; overflow-y: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 32px; }
+  .welcome-inner { max-width: 640px; width: 100%; }
+  .welcome-title { font-family: 'Libre Baskerville', serif; font-size: 36px; font-weight: 700; color: #2B5749; letter-spacing: -0.02em; margin-bottom: 6px; line-height: 1.2; text-align: center; }
+  .welcome-sub { font-size: 11px; color: #7EA89A; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 24px; text-align: center; }
+  .notice-box { background: rgba(43,87,73,0.06); border: 1px solid #C9C0AD; border-radius: 6px; padding: 14px 18px; text-align: left; margin-bottom: 24px; }
+  .notice-title { font-size: 10px; color: #2B5749; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 6px; }
+  .notice-text { font-size: 13px; color: #4A4030; line-height: 1.7; margin: 0; }
+  .select-hint { font-size: 13px; color: #6B6459; margin-bottom: 20px; text-align: center; }
+
+  .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 24px; }
+  .cat-card { border: none; border-radius: 6px; padding: 16px 14px; text-align: left; cursor: pointer; transition: opacity 0.15s; }
+  .cat-card:hover { opacity: 0.88; }
+  .cat-card-title { font-family: 'Libre Baskerville', serif; font-size: 14px; font-weight: 700; color: #D4E8DF; line-height: 1.3; margin-bottom: 5px; }
+  .cat-card-sub { font-size: 11px; color: #7EA89A; line-height: 1.4; }
+
+  .input-bar { border: 1px solid #C9C0AD; border-radius: 8px; background: #FDFAF3; overflow: hidden; box-shadow: 0 1px 4px rgba(43,87,73,0.07); }
+  #queryInput { width: 100%; padding: 14px 16px 8px; font-size: 14px; color: #2A2018; font-family: 'DM Sans', sans-serif; resize: none; outline: none; background: transparent; border: none; display: block; }
+  .input-footer { display: flex; align-items: center; justify-content: space-between; padding: 0 16px 12px; }
+  .input-hint { font-size: 11px; color: #A99A85; font-family: 'DM Sans', sans-serif; }
+  #submitBtn { background: #8AA89E; color: #D4E8DF; border: none; border-radius: 5px; padding: 7px 18px; font-size: 12px; font-family: 'DM Sans', sans-serif; font-weight: 500; cursor: not-allowed; }
+  #submitBtn.ready { background: #2B5749; cursor: pointer; }
+  .input-tags { padding: 0 16px 10px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .input-tags span { font-size: 10px; color: #B0A390; font-family: 'DM Sans', sans-serif; }
+
+  #chatScreen { display: none; flex-direction: column; flex: 1; overflow: hidden; }
+  #chatScreen.visible { display: flex; }
+  #messages { flex: 1; overflow-y: auto; padding: 24px 24px 16px; }
+  .messages-inner { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+  .msg-user-row { display: flex; justify-content: flex-end; }
+  .msg-user { max-width: 72%; background: #2B5749; color: #D4E8DF; border-radius: 8px; padding: 12px 16px; font-size: 14px; line-height: 1.65; font-family: 'DM Sans', sans-serif; }
+  .msg-assistant { background: #FDFAF3; border: 1px solid #C9C0AD; border-radius: 8px; padding: 18px 20px; font-size: 14px; color: #2A2018; line-height: 1.75; white-space: pre-wrap; font-family: 'DM Sans', sans-serif; }
+  .loading-row { display: flex; align-items: center; gap: 8px; padding-left: 4px; }
+  .loading-text { font-size: 12px; color: #7EA89A; font-family: 'DM Sans', sans-serif; }
+  .input-bar-wrap { padding: 0 24px 20px; }
+  .input-bar-inner { max-width: 680px; margin: 0 auto; }
+
+  #docsOverlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); display: none; align-items: center; justify-content: center; z-index: 50; }
+  #docsOverlay.visible { display: flex; }
+  .docs-modal { background: #FDFAF3; border-radius: 8px; width: 640px; max-height: 80vh; overflow-y: auto; padding: 24px; }
+  .docs-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .docs-header h2 { font-family: 'Libre Baskerville', serif; color: #2B5749; font-size: 20px; margin: 0; }
+  #closeDocsBtn { background: transparent; border: none; font-size: 18px; cursor: pointer; color: #2B5749; }
+  .doc-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #E8E0D0; font-size: 13px; font-family: 'DM Sans', sans-serif; }
+  .doc-status { font-size: 12px; }
+  .doc-action-btn { font-size: 11px; padding: 4px 10px; border-radius: 4px; background: transparent; cursor: pointer; }
+  .doc-action-btn.delete { border: 1px solid #C9C0AD; }
+  .doc-action-btn.restore { border: 1px solid #2B5749; }
+  .add-doc-section { margin-top: 20px; padding-top: 16px; border-top: 1px solid #E8E0D0; }
+  .add-doc-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #5A8070; margin-bottom: 8px; }
+  #uploadFileInput, #categorySelect { display: block; margin-bottom: 8px; font-size: 12px; }
+  #addDocBtn { background: #2B5749; color: #D4E8DF; border: none; border-radius: 5px; padding: 7px 18px; font-size: 12px; cursor: pointer; }
+</style>
+</head>
+<body>
+<div id="app">
+  <aside>
+    <div class="sidebar-header">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <rect x="2" y="2" width="12" height="1.5" rx="0.75" fill="#D4E8DF"/>
+            <rect x="2" y="5.5" width="8" height="1.5" rx="0.75" fill="#D4E8DF"/>
+            <rect x="2" y="9" width="10" height="1.5" rx="0.75" fill="#D4E8DF"/>
+            <rect x="2" y="12.5" width="6" height="1.5" rx="0.75" fill="#D4E8DF"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-title">Pakistan Law</div>
+          <div class="brand-sub">Assistant</div>
+        </div>
+      </div>
+      <button id="newChatBtn">New Consultation</button>
+    </div>
+    <div class="cat-list">
+      <p class="cat-label">Areas of Law</p>
+      <nav id="catNav"></nav>
+    </div>
+    <div class="sidebar-footer">
+      <button id="manageDocsBtn">Manage Documents →</button>
+      <p class="disclaimer">This assistant provides legal information, not legal advice. Consult a qualified advocate for court proceedings.</p>
+    </div>
+  </aside>
+
+  <main>
+    <div id="welcomeScreen">
+      <div class="welcome-inner">
+        <h1 class="welcome-title">Pakistan Law Assistant</h1>
+        <p class="welcome-sub">Constitutional and Statutory Legal Guidance</p>
+        <div class="notice-box">
+          <p class="notice-title">Important Notice</p>
+          <p class="notice-text">This assistant provides legal information based on Pakistani constitutional and statutory law, grounded in real retrieved documents. It does not provide legal advice. For matters before a court or regulatory body, consult a qualified advocate.</p>
+        </div>
+        <p class="select-hint">Select an area of law or describe your situation below.</p>
+        <div class="cat-grid" id="catGrid"></div>
+        <div class="input-bar">
+          <textarea id="queryInputWelcome" rows="3" placeholder="Describe your situation or ask about a specific law or right..."></textarea>
+          <div class="input-footer">
+            <span class="input-hint">Press Enter to submit — Shift+Enter for a new line</span>
+            <button id="submitBtnWelcome">Submit</button>
+          </div>
+          <div class="input-tags">
+            <span>PPC 1860</span><span>Constitution 1973</span><span>Labour Laws</span><span>Child Protection Act</span><span>PECA 2016</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="chatScreen">
+      <div id="messages"><div class="messages-inner" id="messagesInner"></div></div>
+      <div class="input-bar-wrap">
+        <div class="input-bar-inner">
+          <div class="input-bar">
+            <textarea id="queryInputChat" rows="3" placeholder="Describe your situation or ask about a specific law or right..."></textarea>
+            <div class="input-footer">
+              <span class="input-hint">Press Enter to submit — Shift+Enter for a new line</span>
+              <button id="submitBtnChat">Submit</button>
+            </div>
+            <div class="input-tags">
+              <span>PPC 1860</span><span>Constitution 1973</span><span>Labour Laws</span><span>Child Protection Act</span><span>PECA 2016</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="docsOverlay">
+    <div class="docs-modal">
+      <div class="docs-header">
+        <h2>Manage Documents</h2>
+        <button id="closeDocsBtn">×</button>
+      </div>
+      <div id="docsList"></div>
+      <div class="add-doc-section">
+        <p class="add-doc-label">Add New Document</p>
+        <input type="file" id="uploadFileInput" accept=".pdf">
+        <select id="categorySelect"></select>
+        <button id="addDocBtn">Add Document</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const API_BASE = '';
+
+const CATEGORIES = [
+  { id: 'women', label: "Women's Rights", sub: 'Harassment, domestic violence, workplace', color: '#2B5749' },
+  { id: 'children', label: "Children's Rights", sub: 'Abuse, protection, custody, education', color: '#3A6B5A' },
+  { id: 'students', label: "Students' Rights", sub: 'Academic rights, institutional misconduct', color: '#1F4A3C' },
+  { id: 'employees', label: "Employees' Rights", sub: 'Labour rights, wrongful termination', color: '#2D6352' },
+  { id: 'minorities', label: 'Religious Minorities', sub: 'Constitutional protections, discrimination', color: '#245046' },
+  { id: 'defamation', label: 'Defamation', sub: 'False accusations, reputation protection', color: '#1A3D30' },
+];
+
+let activeCategory = null;
+let messages = [];
+let isLoading = false;
+
+function renderSidebarCategories() {
+  const nav = document.getElementById('catNav');
+  nav.innerHTML = '';
+  CATEGORIES.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'cat-btn' + (activeCategory === cat.id ? ' active' : '');
+    btn.innerHTML = `<span>${cat.label}</span>`;
+    btn.onclick = () => handleCategoryClick(cat.id);
+    nav.appendChild(btn);
+  });
+}
+
+function renderCategoryCards() {
+  const grid = document.getElementById('catGrid');
+  grid.innerHTML = '';
+  CATEGORIES.forEach(cat => {
+    const card = document.createElement('button');
+    card.className = 'cat-card';
+    card.style.background = cat.color;
+    card.innerHTML = `<div class="cat-card-title">${cat.label}</div><div class="cat-card-sub">${cat.sub}</div>`;
+    card.onclick = () => handleCategoryClick(cat.id);
+    grid.appendChild(card);
+  });
+}
+
+function handleCategoryClick(catId) {
+  activeCategory = catId;
+  renderSidebarCategories();
+  const label = CATEGORIES.find(c => c.id === catId).label;
+  sendQuery(`Tell me about my rights under ${label} and what legal protections are available to me.`);
+}
+
+function showChatScreen() {
+  document.getElementById('welcomeScreen').style.display = 'none';
+  document.getElementById('chatScreen').classList.add('visible');
+}
+
+function showWelcomeScreen() {
+  document.getElementById('welcomeScreen').style.display = 'flex';
+  document.getElementById('chatScreen').classList.remove('visible');
+  messages = [];
+  activeCategory = null;
+  document.getElementById('messagesInner').innerHTML = '';
+  document.getElementById('queryInputWelcome').value = '';
+  document.getElementById('queryInputChat').value = '';
+  renderSidebarCategories();
+  updateSubmitButtons();
+}
+
+function renderMessages() {
+  const container = document.getElementById('messagesInner');
+  container.innerHTML = '';
+  messages.forEach(msg => {
+    if (msg.role === 'user') {
+      const row = document.createElement('div');
+      row.className = 'msg-user-row';
+      row.innerHTML = `<div class="msg-user"></div>`;
+      row.querySelector('.msg-user').textContent = msg.content;
+      container.appendChild(row);
+    } else {
+      const div = document.createElement('div');
+      div.className = 'msg-assistant';
+      div.textContent = msg.content;
+      container.appendChild(div);
+    }
+  });
+  if (isLoading) {
+    const loading = document.createElement('div');
+    loading.className = 'loading-row';
+    loading.innerHTML = `<span class="loading-text">Retrieving legal provisions...</span>`;
+    container.appendChild(loading);
+  }
+  document.getElementById('messages').scrollTop = document.getElementById('messages').scrollHeight;
+}
+
+async function sendQuery(text) {
+  const query = text.trim();
+  if (!query || isLoading) return;
+
+  if (messages.length === 0) showChatScreen();
+
+  messages.push({ role: 'user', content: query });
+  document.getElementById('queryInputWelcome').value = '';
+  document.getElementById('queryInputChat').value = '';
+  isLoading = true;
+  updateSubmitButtons();
+  renderMessages();
+
+  try {
+    const formData = new FormData();
+    formData.append('question', query);
+    const res = await fetch(`${API_BASE}/query`, { method: 'POST', body: formData });
+    const data = await res.json();
+    messages.push({ role: 'assistant', content: data.answer });
+  } catch (err) {
+    messages.push({ role: 'assistant', content: 'Something went wrong reaching the assistant. Please try again.' });
+  } finally {
+    isLoading = false;
+    updateSubmitButtons();
+    renderMessages();
+  }
+}
+
+function updateSubmitButtons() {
+  const welcomeVal = document.getElementById('queryInputWelcome').value.trim();
+  const chatVal = document.getElementById('queryInputChat').value.trim();
+  const wBtn = document.getElementById('submitBtnWelcome');
+  const cBtn = document.getElementById('submitBtnChat');
+  wBtn.classList.toggle('ready', !!welcomeVal && !isLoading);
+  wBtn.disabled = !welcomeVal || isLoading;
+  cBtn.classList.toggle('ready', !!chatVal && !isLoading);
+  cBtn.disabled = !chatVal || isLoading;
+}
+
+document.getElementById('queryInputWelcome').addEventListener('input', updateSubmitButtons);
+document.getElementById('queryInputChat').addEventListener('input', updateSubmitButtons);
+
+document.getElementById('queryInputWelcome').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendQuery(document.getElementById('queryInputWelcome').value); }
+});
+document.getElementById('queryInputChat').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendQuery(document.getElementById('queryInputChat').value); }
+});
+
+document.getElementById('submitBtnWelcome').onclick = () => sendQuery(document.getElementById('queryInputWelcome').value);
+document.getElementById('submitBtnChat').onclick = () => sendQuery(document.getElementById('queryInputChat').value);
+document.getElementById('newChatBtn').onclick = showWelcomeScreen;
+
+// Document management
+async function loadDocs() {
+  const res = await fetch(`${API_BASE}/documents`);
+  const docs = await res.json();
+  const list = document.getElementById('docsList');
+  list.innerHTML = '';
+  Object.entries(docs).forEach(([fileId, info]) => {
+    const row = document.createElement('div');
+    row.className = 'doc-row';
+    const actionHtml = info.status === 'active'
+      ? `<button class="doc-action-btn delete" onclick="deleteDoc('${fileId}')">Delete</button>`
+      : `<button class="doc-action-btn restore" onclick="restoreDoc('${fileId}')">Restore</button>`;
+    row.innerHTML = `<span>${fileId} <span style="color:#8A7A65">(${info.category})</span></span>
+      <span style="display:flex;gap:8px;align-items:center;">
+        <span class="doc-status" style="color:${info.status === 'active' ? '#2B5749' : '#A99A85'}">${info.status}</span>
+        ${actionHtml}
+      </span>`;
+    list.appendChild(row);
+  });
+}
+
+async function deleteDoc(fileId) {
+  await fetch(`${API_BASE}/documents/${fileId}`, { method: 'DELETE' });
+  loadDocs();
+}
+
+async function restoreDoc(fileId) {
+  await fetch(`${API_BASE}/documents/${fileId}/restore`, { method: 'POST' });
+  loadDocs();
+}
+
+document.getElementById('manageDocsBtn').onclick = () => {
+  document.getElementById('docsOverlay').classList.add('visible');
+  loadDocs();
+};
+document.getElementById('closeDocsBtn').onclick = () => {
+  document.getElementById('docsOverlay').classList.remove('visible');
+};
+
+const categorySelect = document.getElementById('categorySelect');
+CATEGORIES.forEach(cat => {
+  const opt = document.createElement('option');
+  opt.value = cat.id;
+  opt.textContent = cat.label;
+  categorySelect.appendChild(opt);
+});
+
+document.getElementById('addDocBtn').onclick = async () => {
+  const file = document.getElementById('uploadFileInput').files[0];
+  if (!file) return;
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('category', categorySelect.value);
+  await fetch(`${API_BASE}/documents/upload`, { method: 'POST', body: formData });
+  document.getElementById('uploadFileInput').value = '';
+  loadDocs();
+};
+
+renderSidebarCategories();
+renderCategoryCards();
+updateSubmitButtons();
+</script>
+</body>
+</html>

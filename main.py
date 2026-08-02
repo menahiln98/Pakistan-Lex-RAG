@@ -19,7 +19,7 @@ UPLOAD_TEMP = "data/uploads_temp"
 os.makedirs(UPLOAD_TEMP, exist_ok=True)
 
 
-@app.get("/")
+@app.get("/api/status")
 def root():
     return {"status": "Pakistan Rights Assistant API is running"}
 
@@ -58,3 +58,6 @@ def delete_endpoint(file_id: str):
 def restore_endpoint(file_id: str):
     restore_document(file_id)
     return {"status": "restored", "file_id": file_id}
+
+from fastapi.staticfiles import StaticFiles
+app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
