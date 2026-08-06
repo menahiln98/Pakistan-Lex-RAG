@@ -6,8 +6,11 @@ Built entirely from scratch (no LangChain), covering the full RAG pipeline: docu
 
 ## Features
 
+## Features
+
 - **Grounded legal answers** — every response cites the specific law and section, quotes the exact statutory text, explains the legal elements involved, and outlines the formal complaint procedure
 - **Six legal categories** — Women's Rights, Children's Rights, Students' Rights, Employees' Rights, Religious Minorities, and Defamation/Cyberbullying protection
+- **10 source documents** including the Protection Against Harassment of Women at the Workplace Act 2010, the Anti-Rape Act 2021, the Muslim Family Laws Ordinance 1961 (maintenance/alimony), the Employment of Children Act 1991, and others spanning all six categories
 - **Dynamic document management** — add or remove entire source documents at runtime; deletions are fully reversible via an archive system
 - **Performance-aware retrieval** — semantic search (BGE embeddings) combined with cross-encoder reranking for improved relevance
 - **Custom-styled interface** — Streamlit UI with injected CSS for a distinct visual identity
